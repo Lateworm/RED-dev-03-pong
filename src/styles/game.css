@@ -73,14 +73,24 @@ html {
 body {
   align-items: center;
   display: flex;
-  font-family: 'Silkscreen Web', monotype;
+  font-family: 'Ubuntu Mono', monotype;
   height: 100vh;
   justify-content: center;
-  width: 100%;
+	width: 100%;
+	background-color: #966;
+	color: #aca;
+	letter-spacing: 150%;
 }
 
 h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem; 
   text-align: center;
+}
+
+.game {
+	background: linear-gradient(to right, #966 0%,#522 33%,#522 66%,#966 100%);
+	width: 100vw;
+	display: flex;
+	justify-content: center;
 }
