@@ -22,6 +22,14 @@ export default class Paddle {
 			}
 		});
 	}
+
+	coordinates(x, y, width, height) {
+		let leftX = x;
+		let rightX = x + width;
+		let topY = y;
+		let bottomY = y + height;
+		return { leftX, rightX, topY, bottomY };
+	}
 	
 	up () {
 		this.y = Math.max(0, this.y-this.speed);
@@ -39,8 +47,8 @@ export default class Paddle {
 		paddle.setAttributeNS(null, 'x', this.x);
 		paddle.setAttributeNS(null, 'y', this.y);
 		paddle.setAttributeNS(null, 'fill', '#aca');
-		paddle.setAttributeNS(null, 'rx', '4');
-		paddle.setAttributeNS(null, 'ry', '4');
+		// paddle.setAttributeNS(null, 'rx', '4'); // round the corners of the paddle
+		// paddle.setAttributeNS(null, 'ry', '4');
 
 		svg.appendChild(paddle);
 
