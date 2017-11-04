@@ -8,8 +8,11 @@ export default class Paddle {
     this.height = height;
     this.x = x;
     this.y = y;
-    this.speed = 10;
+		this.speed = 5;	// instead of setting speed, consider using a boolean of "whether to apply speed"
 		this.score = 0;
+		this.vy = 0;		// set the inital y-axis velocity of the paddle
+		this.upInput = false;
+		this.downInput = false;
 		
 		document.addEventListener('keydown', event => {
 			switch(event.key) {
@@ -21,6 +24,18 @@ export default class Paddle {
 					break;
 			}
 		});
+
+		document.addEventListener('keyup', event => {
+			switch(event.key) {
+				case upKey:
+					this.upInput = false;
+					break;
+				case downKey:
+					this.downInput = false;
+					break;
+			}
+		});
+
 	}
 
 	coordinates(x, y, width, height) {
@@ -32,14 +47,21 @@ export default class Paddle {
 	}
 	
 	up () {
-		this.y = Math.max(0, this.y-this.speed);
+		// this.y = Math.max(0, this.y-this.speed);
+		this.upInput = true;
 	}
 
 	down () {
-		this.y = Math.min(this.boardHeight-this.height, this.y+this.speed);
+		// this.y = Math.min(this.boardHeight-this.height, this.y+this.speed);
+		this.downInput = true;
 	}
 
+
 	render(svg) {
+
+		// try a keypress if statement in here
+		if (this.upInput) {this.y = Math.max(0, this.y-this.speed)}
+		if (this.downInput) {this.y = Math.min(this.boardHeight-this.height, this.y+this.speed)}
 
 		let paddle = document.createElementNS(SVG_NS, 'rect');
 		paddle.setAttributeNS(null, 'width', this.width);
