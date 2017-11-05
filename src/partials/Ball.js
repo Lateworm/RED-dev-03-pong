@@ -14,14 +14,12 @@ export default class Ball {
 	reset() {
   this.x = this.boardWidth / 2;
 	this.y = this.boardHeight / 2;
-
 	this.vy = 0;
-
 	while (this.vy === 0 ) {
-		this.vy = Math.floor(Math.random() * 10 - 5);
+		// this.vy = Math.floor(Math.random() * 10 - 5);			// set initial y velocity
+		this.vy = (Math.random() * 4 - 2);	// without floor, there is a possibility of getting a perfectly horizontal launch :(
 	}
-
-	this.vx = this.direction * (6 - Math.abs(this.vy));
+	this.vx = this.direction * (6 - Math.abs(this.vy));	// set initial x velocity
 	}
 
 	wallCollision(paddle1, paddle2) {
@@ -70,7 +68,6 @@ export default class Ball {
 				this.ping.play();
 			}
 		}
-
 	}
 
 	goal(player) {
@@ -79,8 +76,8 @@ export default class Ball {
 	}
 	
 	render(svg, paddle1, paddle2) {
-		this.y += this.vy;
-		this.x += this.vx;
+		this.y += this.vy;	// y position = y position + y velocity
+		this.x += this.vx;	// y position = x position + x velocity
 		this.wallCollision(paddle1, paddle2);
 		this.paddleCollision(paddle1, paddle2);
 
