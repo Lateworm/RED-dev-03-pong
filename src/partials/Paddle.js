@@ -47,19 +47,15 @@ export default class Paddle {
 	}
 	
 	up () {
-		// this.y = Math.max(0, this.y-this.speed);
 		this.upInput = true;
 	}
 
 	down () {
-		// this.y = Math.min(this.boardHeight-this.height, this.y+this.speed);
 		this.downInput = true;
 	}
 
 
 	render(svg) {
-
-		// try a keypress if statement in here
 		if (this.upInput) {this.y = Math.max(0, this.y-this.speed)}
 		if (this.downInput) {this.y = Math.min(this.boardHeight-this.height, this.y+this.speed)}
 
@@ -68,9 +64,9 @@ export default class Paddle {
 		paddle.setAttributeNS(null, 'height', this.height);
 		paddle.setAttributeNS(null, 'x', this.x);
 		paddle.setAttributeNS(null, 'y', this.y);
-		paddle.setAttributeNS(null, 'fill', '#aca');
-		// paddle.setAttributeNS(null, 'rx', '4'); // round the corners of the paddle
-		// paddle.setAttributeNS(null, 'ry', '4');
+		paddle.setAttributeNS(null, 'fill', '#fff');
+		// paddle.setAttributeNS(null, 'rx', '3'); // round the corners of the paddle
+		// paddle.setAttributeNS(null, 'ry', '3');
 
 		svg.appendChild(paddle);
 
