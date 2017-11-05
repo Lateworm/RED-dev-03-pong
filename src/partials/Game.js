@@ -32,8 +32,8 @@ export default class Game {
 		// this.ball03 = new Ball(this.ballRadius, this.width, this.height);
 		// this.ball04 = new Ball(this.ballRadius, this.width, this.height);
 		
-		this.score1 = new Score((this.width/2)-30, 30, 30);
-		this.score2 = new Score((this.width/2)+30, 30, 30);
+		this.score1 = new Score((this.width/2)-30, 30, 30, 'p1');
+		this.score2 = new Score((this.width/2)+30, 30, 30, 'p2');
 		
 		document.addEventListener('keydown', event => {
 			if ( event.key === KEYS.spaceBar){
