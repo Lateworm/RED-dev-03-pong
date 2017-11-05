@@ -20,12 +20,12 @@ A basic pong game using SVGs.
 
 - Implemented smoother movement of the paddles, making the game much easier to play.
 - Modified the ball's reset function to prevent it from launching the ball at unplayable near-vertical vectors.
-- Write the score to HTML outside the play area
-- Write the player's controls to the screen.
+- Write the players' score and controls to HTML outside the play area using a template literal in Score.js
 
 ## Outstanding Stretch Goals
 
 - Run gameplay only when the window/tab has focus.
+- Have the game paused on load with a UI to communicate this
 - Make the first serve to a random player instead of always to player 2.
 - Change how the ball is spawned to create more playable vectors.
 - If the ball's cy is within its radius past the end of the paddle, send it off at a crazy angle.
