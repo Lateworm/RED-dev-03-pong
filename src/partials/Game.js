@@ -13,7 +13,7 @@ export default class Game {
 		this.height = height;
 		this.gameElement = document.getElementById(element);
 		this.boardGap = 10;
-		this.paddleWidth = 8;
+		this.paddleWidth = 4;
 		this.paddleHeight = 56;
 		this.ballRadius = 10;
 
