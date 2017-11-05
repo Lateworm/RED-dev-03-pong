@@ -17,7 +17,7 @@ export default class Ball {
 	this.vy = 0;
 	while (this.vy === 0 ) {
 		// this.vy = Math.floor(Math.random() * 10 - 5);			// set initial y velocity
-		this.vy = (Math.random() * 4 - 2);	// without floor, there is a possibility of getting a perfectly horizontal launch :(
+		this.vy = Math.floor(Math.random() * 4 - 2);
 	}
 	this.vx = this.direction * (6 - Math.abs(this.vy));	// set initial x velocity
 	}
