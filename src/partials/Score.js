@@ -2,27 +2,33 @@ import {SVG_NS} from '../settings';
 
 export default class Score {
 
-  constructor(x, y, size, id) {
-    this.x = x;
-    this.y = y;
-		this.size = size;
+  constructor(id, upKey, downKey) {
 		this.id = id;
+		this.upKey = upKey;
+		this.downKey = downKey;
   }
 	
 	render(svg, score) {
-		let text = document.createElementNS(SVG_NS, 'text');
-		text.setAttributeNS(null, 'x', this.x);
-		text.setAttributeNS(null, 'y', this.y);
-		text.setAttributeNS(null, 'font-size', this.size);	
-		text.setAttributeNS(null, 'fill', '#fff');
-		text.setAttributeNS(null, 'font-family', '\'Silkscreen Web\', monotype');
-		text.innerHTML = score;
 
-		svg.appendChild(text);
+		document.getElementById(this.id).innerHTML = `
+		<p>score</p>
+		<p class="score">${score}</p>
+		<p>controls</p>
+		<p>
 
+			<div class="controls">
+				
+					${this.upKey}
+				
+			</div>
 
-		document.getElementById(this.id).innerHTML = score;  // needs to be this.something.... player?
-
-
+			<div class="controls">
+				
+					${this.downKey}
+				
+			</div>
+			
+		</p>
+		`
 	}
 }
