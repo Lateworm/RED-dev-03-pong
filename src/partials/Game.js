@@ -1,9 +1,8 @@
-import {SVG_NS, KEYS} from '../settings';
+import {SVG_NS, KEYS, GAMEVARS} from '../settings';
 import Board from './Board';
 import Paddle from './Paddle';
 import Ball from './Ball';
 import Score from './Score';
-
 
 export default class Game {
 
@@ -16,6 +15,7 @@ export default class Game {
 		this.paddleWidth = 4;
 		this.paddleHeight = 56;
 		this.ballRadius = 10;
+		this.autopause = true;
 
 
 		this.board = new Board(this.width, this.height);
@@ -38,6 +38,7 @@ export default class Game {
 		document.addEventListener('keydown', event => {
 			if ( event.key === KEYS.spaceBar){
 					this.pause = !this.pause
+					this.autopause = false;
 				}
 		});
 
@@ -47,7 +48,26 @@ export default class Game {
 
 	render() {
 
-		if (this.pause) {return;}
+		if (!this.autopause && (this.paddle1.score >= GAMEVARS.winScore || this.paddle2.score >= GAMEVARS.winScore)) {
+			this.paddle1.score = 0
+			this.paddle2.score = 0
+			this.paddle1.y = (this.height-this.paddleHeight)/2
+			this.paddle2.y = (this.height-this.paddleHeight)/2
+			document.getElementById('title').innerHTML = 'pong'
+			document.getElementById('title').classList.remove('highlight');
+			document.getElementById('pause').innerHTML = 'pause'
+		}
+
+		if (this.pause) {
+			document.getElementById('pause').innerHTML = 'play?'
+			document.getElementById('footer').classList.add('highlight');
+			return;
+		} else {
+			document.getElementById('pause').innerHTML = 'pause'
+			document.getElementById('footer').classList.remove('highlight');
+		} 	
+
+		if (this.autopause) {this.pause = true}
 
 		this.gameElement.innerHTML = '';
 		
@@ -62,13 +82,26 @@ export default class Game {
 		this.board.render(svg);
 		this.paddle1.render(svg);
 		this.paddle2.render(svg);
-		this.ball01.render(svg, this.paddle1, this.paddle2);
 		this.score1.render(svg, this.paddle1.score);
 		this.score2.render(svg, this.paddle2.score);
+
+		this.ball01.render(svg, this.paddle1, this.paddle2);
 		// this.ball02.render(svg, this.paddle1, this.paddle2);
 		// this.ball03.render(svg, this.paddle1, this.paddle2);
 		// this.ball04.render(svg, this.paddle1, this.paddle2);
 
+		if (this.paddle1.score >= GAMEVARS.winScore || this.paddle2.score >= GAMEVARS.winScore) {
+			this.autopause = true
+
+			if (this.paddle1.score > this.paddle2.score) {
+				document.getElementById('title').innerHTML = 'player 1 wins!'
+			} else {
+				document.getElementById('title').innerHTML = 'player 2 wins!'
+			}
+
+			document.getElementById('title').classList.add('highlight');
+			return;
+		}
 	}
 
 }
