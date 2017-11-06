@@ -50,7 +50,8 @@ export default class Ball {
 				&& this.y >= topY   					// ball Y is >= paddle topY
 				&& this.y <= bottomY					// ball Y is <= paddle bottomY
 			) {
-				this.vx = -this.vx;
+				this.vx *= -1.03;
+				this.vy *= 1.02;
 				this.ping.play();
 			}
 
@@ -64,7 +65,8 @@ export default class Ball {
 				&& this.y >= topY   					// ball Y is >= paddle topY
 				&& this.y <= bottomY					// ball Y is <= paddle bottomY
 			) {
-				this.vx = -this.vx;
+				this.vx *= -1.03;
+				this.vy *= 1.02;
 				this.ping.play();
 			}
 		}
