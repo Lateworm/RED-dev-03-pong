@@ -3,7 +3,7 @@ import Game from './partials/Game'
 
 
 // create a game instance
-const game = new Game('game', 768, 256);
+const game = new Game('game', 640, 256);
 
 (function gameLoop() {
 		game.render();
