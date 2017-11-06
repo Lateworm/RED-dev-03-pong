@@ -7,3 +7,7 @@ export const KEYS = {
   p2down: 	'/',    // player 2 down key
   spaceBar: ' ', 		// we'll use this later...
 }
+
+export const GAMEVARS = {
+	winScore: 10,
+}
