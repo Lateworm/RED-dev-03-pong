@@ -17,9 +17,7 @@ export default class Game {
 		this.ballRadius = 10;
 		this.autopause = true;
 
-
 		this.board = new Board(this.width, this.height);
-
 
 		this.paddle1 = new Paddle(this.height, this.paddleWidth, this.paddleHeight,
 			this.boardGap, (this.height-this.paddleHeight)/2, KEYS.p1up, KEYS.p1down);
@@ -43,8 +41,6 @@ export default class Game {
 		});
 
 	}
-
-
 
 	render() {
 

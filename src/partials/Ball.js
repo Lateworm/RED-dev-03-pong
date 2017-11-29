@@ -12,14 +12,14 @@ export default class Ball {
 	}
 
 	reset() {
-  this.x = this.boardWidth / 2;
-	this.y = this.boardHeight / 2;
-	this.vy = 0;
-	while (this.vy === 0 ) {
-		// this.vy = Math.floor(Math.random() * 10 - 5);			// set initial y velocity
-		this.vy = Math.floor(Math.random() * 4 - 2);
-	}
-	this.vx = this.direction * (6 - Math.abs(this.vy));	// set initial x velocity
+		this.x = this.boardWidth / 2;
+		this.y = this.boardHeight / 2;
+		this.vy = 0;
+		while (this.vy === 0 ) {
+			// this.vy = Math.floor(Math.random() * 10 - 5);			// set initial y velocity
+			this.vy = Math.floor(Math.random() * 4 - 2);
+		}
+		this.vx = this.direction * (6 - Math.abs(this.vy));	// set initial x velocity
 	}
 
 	wallCollision(paddle1, paddle2) {
