@@ -26,9 +26,6 @@ export default class Game {
 			this.width-this.boardGap-this.paddleWidth, (this.height-this.paddleHeight)/2, KEYS.p2up, KEYS.p2down);
 
 		this.ball01 = new Ball(this.ballRadius, this.width, this.height);
-		// this.ball02 = new Ball(this.ballRadius, this.width, this.height);
-		// this.ball03 = new Ball(this.ballRadius, this.width, this.height);
-		// this.ball04 = new Ball(this.ballRadius, this.width, this.height);
 		
 		this.score1 = new Score('p1', KEYS.p1up, KEYS.p1down);
 		this.score2 = new Score('p2', KEYS.p2up, KEYS.p2down);
@@ -82,9 +79,6 @@ export default class Game {
 		this.score2.render(svg, this.paddle2.score);
 
 		this.ball01.render(svg, this.paddle1, this.paddle2);
-		// this.ball02.render(svg, this.paddle1, this.paddle2);
-		// this.ball03.render(svg, this.paddle1, this.paddle2);
-		// this.ball04.render(svg, this.paddle1, this.paddle2);
 
 		if (this.paddle1.score >= GAMEVARS.winScore || this.paddle2.score >= GAMEVARS.winScore) {
 			this.autopause = true

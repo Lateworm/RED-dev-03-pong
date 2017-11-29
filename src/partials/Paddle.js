@@ -54,7 +54,6 @@ export default class Paddle {
 		this.downInput = true;
 	}
 
-
 	render(svg) {
 		if (this.upInput) {this.y = Math.max(0, this.y-this.speed)}
 		if (this.downInput) {this.y = Math.min(this.boardHeight-this.height, this.y+this.speed)}
@@ -65,8 +64,6 @@ export default class Paddle {
 		paddle.setAttributeNS(null, 'x', this.x);
 		paddle.setAttributeNS(null, 'y', this.y);
 		paddle.setAttributeNS(null, 'fill', '#fff');
-		// paddle.setAttributeNS(null, 'rx', '3'); // round the corners of the paddle
-		// paddle.setAttributeNS(null, 'ry', '3');
 
 		svg.appendChild(paddle);
 

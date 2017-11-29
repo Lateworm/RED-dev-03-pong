@@ -108,7 +108,6 @@ p {
 .game {
 	grid-column: 2;
  	grid-row: 3;
-	/* background: linear-gradient(to right, #966 0%,#522 33%,#522 66%,#966 100%); split this right and left */
 }
 
 .p1wrapper {

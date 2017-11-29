@@ -1,5 +1,3 @@
-// import {SVG_NS} from '../settings';
-
 export default class Score {
 
   constructor(id, upKey, downKey) {

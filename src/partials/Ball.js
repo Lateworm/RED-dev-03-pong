@@ -16,8 +16,7 @@ export default class Ball {
 		this.y = this.boardHeight / 2;
 		this.vy = 0;
 		while (this.vy === 0 ) {
-			// this.vy = Math.floor(Math.random() * 10 - 5);			// set initial y velocity
-			this.vy = Math.floor(Math.random() * 4 - 2);
+			this.vy = Math.floor(Math.random() * 4 - 2); // set initial y velocity
 		}
 		this.vx = this.direction * (6 - Math.abs(this.vy));	// set initial x velocity
 	}
