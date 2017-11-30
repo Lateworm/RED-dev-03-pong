@@ -8,7 +8,7 @@ export default class Paddle {
     this.height = height;
     this.x = x;
     this.y = y;
-		this.speed = 5;	// instead of setting speed, consider using a boolean of "whether to apply speed"
+		this.speed = 5;
 		this.score = 0;
 		this.vy = 0;		// set the inital y-axis velocity of the paddle
 		this.upInput = false;
@@ -48,15 +48,17 @@ export default class Paddle {
 	
 	up () {
 		this.upInput = true;
+		this.y = Math.max(0, this.y-this.speed);
 	}
 
 	down () {
 		this.downInput = true;
+		this.y = Math.min(this.boardHeight-this.height, this.y+this.speed)
 	}
 
 	render(svg) {
-		if (this.upInput) {this.y = Math.max(0, this.y-this.speed)}
-		if (this.downInput) {this.y = Math.min(this.boardHeight-this.height, this.y+this.speed)}
+		if (this.upInput) this.up();
+		if (this.downInput) {}
 
 		let paddle = document.createElementNS(SVG_NS, 'rect');
 		paddle.setAttributeNS(null, 'width', this.width);
